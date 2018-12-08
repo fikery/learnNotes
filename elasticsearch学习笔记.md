@@ -1,4 +1,4 @@
-## elasticsearch基本介绍
+## 介绍
 用Java开发的基于restful web接口的搜索服务器，是一个分布式的搜索引擎。
 
 **ELK**，一个分布式的日志分析系统，基于elasticsearch,logstash,kibana。
@@ -18,11 +18,24 @@ elasticsearch可以看做一个nosql，但是update比mongodb慢很多，主要�
 2. 安装[elasticsearch-rtf](https://github.com/medcl/elasticsearch-rtf)，国内大神集成了很多插件的版本
 3. 安装[head插件](https://github.com/mobz/elasticsearch-head)，相当于navicat之于mysql，提供web可视化功能
 4. 安装[kibana](https://www.elastic.co/cn/downloads/kibana)，需要注意的是要安装与rtf对应的版本。这是主要进行rest操作的工具。
-**注意** 安装好head插件后，可能并不能访问9200端口的elasticsearch，需要在elasticsearch-rtf的config文件夹下的yml文件中配置相应的安全策略。
+**注意** 安装好head插件后，可能并不能访问9200端口的elasticsearch，需要在elasticsearch-rtf的config文件夹下的yml文件中配置相应的安全策略，将下面的代码保存在yml文件最后。
 ```
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 http.cors.allow-methods: OPTIONS. HEAD, GET, POST, PUT, DELETE
 http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, X-User"
 ```
-pass
+## 相关概念
+1. 集群：一个或多个节点组织在一起
+2. 节点：一个节点是集群中的一个服务器，由一个名字来标识，默认是一个随机漫画角色的名字
+3. 分片：将索引划分为多份的能力，允许水平分割和扩展容量，多个分片响应请求，提高性能和吞吐量
+4. 副本：创建分片的一份或多份的能力，一个节点失败其余节点可以顶上
+elasticsearch和mysql中一些基本概念的对应
+elasticsearch|mysql
+:--:|:--:
+index(索引)|数据库
+type(类型)|表
+documents(文档)|行
+fields|列
+
+

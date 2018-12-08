@@ -31,6 +31,7 @@ http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, X-User
 3. 分片：将索引划分为多份的能力，允许水平分割和扩展容量，多个分片响应请求，提高性能和吞吐量
 4. 副本：创建分片的一份或多份的能力，一个节点失败其余节点可以顶上
 elasticsearch和mysql中一些基本概念的对应
+
 elasticsearch|mysql
 :-:|:-:
 index(索引)|数据库

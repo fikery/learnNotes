@@ -32,7 +32,7 @@ http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, X-User
 4. 副本：创建分片的一份或多份的能力，一个节点失败其余节点可以顶上
 elasticsearch和mysql中一些基本概念的对应
 elasticsearch|mysql
-:--:|:--:
+:-:|:-:
 index(索引)|数据库
 type(类型)|表
 documents(文档)|行

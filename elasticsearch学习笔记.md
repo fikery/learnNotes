@@ -15,6 +15,14 @@ elasticsearch可以看做一个nosql，但是update比mongodb慢很多，主要�
 
 ## 安装
 1. 安装Java，需要SDK在8以上版本。
-2. 安装[elasticsearch-rtf](https://github.com/medcl/elasticsearch-rtf)（国内大神集成了很多插件的版本）
-3. 安装[head插件](https://github.com/mobz/elasticsearch-head)
-4. 安装[kibana](https://www.elastic.co/cn/downloads/kibana) 需要注意的是要安装与rtf对应的版本
+2. 安装[elasticsearch-rtf](https://github.com/medcl/elasticsearch-rtf)，国内大神集成了很多插件的版本
+3. 安装[head插件](https://github.com/mobz/elasticsearch-head)，相当于navicat之于mysql，提供web可视化功能
+4. 安装[kibana](https://www.elastic.co/cn/downloads/kibana)，需要注意的是要安装与rtf对应的版本。这是主要进行rest操作的工具。
+**注意** 安装好head插件后，可能并不能访问9200端口的elasticsearch，需要在elasticsearch-rtf的config文件夹下的yml文件中配置相应的安全策略。
+```
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+http.cors.allow-methods: OPTIONS. HEAD, GET, POST, PUT, DELETE
+http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, X-User"
+```
+pass

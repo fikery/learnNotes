@@ -33,7 +33,7 @@ http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, X-User
 elasticsearch和mysql中一些基本概念的对应
 
 elasticsearch|mysql
-:-:|:-:
+-|-
 index(索引)|数据库
 type(类型)|表
 documents(文档)|行

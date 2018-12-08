@@ -1,4 +1,4 @@
-## 介绍
+## 1.介绍
 用Java开发的基于restful web接口的搜索服务器，是一个分布式的搜索引擎。
 
 **ELK**，一个分布式的日志分析系统，基于elasticsearch,logstash,kibana。
@@ -13,7 +13,7 @@
 nosql相比于rdb可以存储丰富形式的数据，如mysql设计表的第一范式要求字段不能含有数组类型的值，而mongodb可以直接按json格式存下来。
 elasticsearch可以看做一个nosql，但是update比mongodb慢很多，主要用于搜索。
 
-## 安装
+## 2.安装
 1. 安装Java，需要SDK在8以上版本。
 2. 安装[elasticsearch-rtf](https://github.com/medcl/elasticsearch-rtf)，国内大神集成了很多插件的版本
 3. 安装[head插件](https://github.com/mobz/elasticsearch-head)，相当于navicat之于mysql，提供web可视化功能
@@ -25,7 +25,7 @@ http.cors.allow-origin: "*"
 http.cors.allow-methods: OPTIONS. HEAD, GET, POST, PUT, DELETE
 http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, X-User"
 ```
-## 相关概念
+## 3.相关概念
 1. 集群：一个或多个节点组织在一起
 2. 节点：一个节点是集群中的一个服务器，由一个名字来标识，默认是一个随机漫画角色的名字
 3. 分片：将索引划分为多份的能力，允许水平分割和扩展容量，多个分片响应请求，提高性能和吞吐量
@@ -64,5 +64,5 @@ ruby|(文章B,<1>,1)
 3. 分词，电脑桌面还是电脑，桌面
 4. 倒排文件过大，压缩编码
 
-## 使用
+## 4.使用
 通过kibana,来操作es。启动kibana，选择Dev Tools，即可在输入框起飞了~

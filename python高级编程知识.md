@@ -13,19 +13,16 @@ type(a)  # <class 'int'>
 type(int)  # <class 'type'>
 type(b)  # <class 'str'>
 type(str)  # <class 'type'>
-```
 从这里我们可以看到生成关系type->class->obj
-
 可以得出结论，一般对象是由类生成的，而类是由type生成的
+```
 
 ```
 object.__bases__  # ()
 type.__bases__  # (<class 'object'>,)
 type(object)  # <class 'type'>
-```
 object是顶层基类，type也是一个类
-
 type类的基类是object
-
 object类是由type类生成的
+```
 

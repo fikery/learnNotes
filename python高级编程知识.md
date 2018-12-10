@@ -52,7 +52,7 @@ class A:
     # 魔法方法，使得A的实例对象成为可迭代对象，也成为了序列类型
     def __getitem__(self, item):
         return self.lst[item]
-2.
+
     # 可以获取传入列表的长度
     def __len__(self):
         return len(self.lst)
@@ -101,12 +101,15 @@ print(a)  # [1,2,3,4]
 这就是便利贴的体现，b贴在了a上面，而a贴在了对象`[1,2]`上面，所以a和b其实都是指向了同一个对象，即`a is b`是True。
 
 **关于==和is的区别**
+
 `==`比较的是值，而`is`比较的是id()，另外对于小整数和短字符串，python内部有驻留机制，保存在内存中，每次申请都是同一个对象。
 
 **python的自省机制**
+
 所谓的python自省机制，指的就是通过一定的机制查询到对象内部结构。对于__dict__可以查询对象的内部属性，dir()则是列出对象的所有属性名称。
 
 **python的多重继承**
+
 首先不推荐使用多重继承，这会导致复杂情况。python的多重继承按照MRO方法解析顺序，从左到右，新式类广度优先。super()调用的时候，从左到右，继承的同级间只执行左。
 ```
 class A:
@@ -201,6 +204,7 @@ print(F.__mro__)
 比如定义User类的age字段，需要是一个IntField()类型，那么IntField就是一个属性描述符。
 
 **关于__new__和__init__的区别**
+
 实例化一个类时，先调用__new__方法，再调用__init__方法，如果new不返回类对象，则不会调用init方法，即new是控制类生成的魔法方法。
 ```
 class Us:
@@ -213,6 +217,7 @@ class Us:
 ```
 
 **关于type动态创建类**
+
 ```
 def say(self):
     '''传递给动态创建类的方法'''
@@ -263,6 +268,7 @@ Manager().Queue()                  # 进程池用
 管道pipe只能用于2个进程间通信，一个pipe.send(),一个pipe.recv()
 
 **线程同步**
+
 对于`a += 1`这一语句，从字节码的层面看有4步，这中间可能会产生线程切换，导致错误：
 1. load a
 2. load 1
@@ -320,6 +326,7 @@ I/O多路复用：通过一种机制，一个进程可以监视多个FID文件�
 epoll并不比select就好。在高并发，连接活跃度不高的情况下，epoll更好。但是在并发不高，连接活跃的情况下，select更好。
 
 **协程**
+
 可以暂停并恢复的函数，且可以向暂停的对方传值。主要是为了解决如下问题：
 1. 回调模式编写代码复杂度高
 2. 同步编程的并发性不高
@@ -361,6 +368,7 @@ print(gen2.send(html))  # 2
 ```
 
 **yield from iterable**
+
 可以将可迭代序列里的值一个一个yield出来，不仅如此，yield from还可以建立调用方与子生成器的双向通道
 ```
 # yield和yield from
@@ -482,6 +490,7 @@ finally:
 ```
 
 **协程中嵌套协程**
+
 loop中注册task，task调用协程，协程调用子协程，子协程直接返回数据给task，等到子协程执行完成后，抛出一个stop异常，被协程捕捉，然后协程同样抛出stop异常给task，然后task标记为done返回给loop。
 
 asyncio的几个特殊方法：call_soon(),call_later(),call_at(),call_soon_threadsafe()
@@ -502,6 +511,7 @@ loop.run_until_complete(asyncio.wait(tasks))
 ```
 
 **asyncio同步和通信**
+
 在asyncio中调用async函数时，如对一个共享变量分别进行加减操作，如果函数不yield或者await，那么由于是单线程的，所以协程不再需要锁，对共享变量的操作是符合预期的。但是如果函数中有yield或者await，那么可能会产生对同一个资源多次竞争调用的问题，所以还是需要Lock。这时采用的是asyncio的lock。如果不采用lock加锁，那么可以使用Queue(使用方式为await queue.get())。其实由于协程本质上还是单线程的原因，其同步和通信相比线程要简单
 ```
 import asyncio

@@ -44,5 +44,43 @@ python中常见的内置类型：None(全局唯一)，迭代类型，序列类�
 还有len()函数会查找是否实现了__len__，另外print()函数会先找__str__是否实现，如果没有就找__repr__。
 
 还有其他很多数学运算函数，比如__abs__以及__sum__还有__add__等。
+```
+class A:
+    def __init__(self, lst):
+        self.lst = lst
+
+    # 魔法方法，使得A的实例对象成为可迭代对象，也成为了序列类型
+    def __getitem__(self, item):
+        return self.lst[item]
+
+    # 可以获取传入列表的长度
+    def __len__(self):
+        return len(self.lst)
+
+    # 格式化输出的对象
+    def __str__(self):
+        return ','.join(self.lst)
+
+    # 开发模式的原始对象
+    def __repr__(self):
+        return ','.join(self.lst)
 
 
+a = A(['x', 'y', 'z'])
+
+# __getitem__实现序列类型，可切片
+print(a[:2])
+# __getitem__直接迭代a对象，而不是a.lst
+for i in a:
+    print(i)
+# 实际调用__len__
+print(len(a))
+# 没有实现__repr__时
+print(repr(a))  # <__main__.A object at 0x10c304a90>
+# 实现了__repr__时
+print(repr(a))  # x,y,z
+# 没有实现__str__和__repr__时
+print(a)  # <__main__.A object at 0x10e897a90>
+# 实现了__str__或者__repr__
+print(a)  # x,y,z
+```

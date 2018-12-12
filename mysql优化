@@ -13,7 +13,7 @@
 12. 避免在where子句中进行函数操作，如sum(a)=2
 13. 使用exists代替in
 14. 使用between代替in
-15. where 语句里面如果带有or条件, myisam表能用到索引， innodb不行
+15. where语句里面如果带有or条件，myisam表能用到索引，innodb不行
 
 索引的优点：
 1. 减少扫描表的次数

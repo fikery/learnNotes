@@ -20,8 +20,8 @@ DROP DATABASE database_name;
 # 列出数据库
 \l
  
- # 退出psql
- \q
+# 退出psql
+\q
  ```
  
  **创建/删除表**

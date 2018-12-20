@@ -82,3 +82,46 @@ HAVING [ conditions ]
 ORDER BY column1, column2
 ```
 
+**连接**
+
+```
+# 内连接
+SELECT table1.columns, table2.columns  
+FROM table1  
+INNER JOIN table2  
+ON table1.common_filed = table2.common_field;
+
+# 左外连接
+SELECT table1.columns, table2.columns  
+FROM table1  
+LEFT OUTER JOIN table2  
+ON table1.common_filed = table2.common_field;
+
+# 右外连接
+SELECT table1.columns, table2.columns  
+FROM table1  
+RIGHT OUTER JOIN table2  
+ON table1.common_filed = table2.common_field;
+
+# 全外连接
+SELECT table1.columns, table2.columns  
+FROM table1  
+FULL OUTER JOIN table2  
+ON table1.common_filed = table2.common_field;
+
+# 笛卡尔积
+SELECT coloums   
+FROM table1   
+CROSS JOIN table2
+```
+**索引**
+
+```
+# 单列索引
+CREATE INDEX index_name  
+ON table_name (column_name);
+
+# 多列索引
+CREATE INDEX index_name  
+ON table_name (column_name1, column_name2);
+```

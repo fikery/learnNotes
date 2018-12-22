@@ -251,7 +251,7 @@ class User(metaclass=MetaClass):
 对于IO操作来说，多线程和多进程性能差别不大，可能还会由于多进程的资源开销大导致性能反而更低
 ```
 thread.start()  # 开启线程
-thread.setDaemon(True)  # 设置守护线程，主线程运行完毕后kill掉当前线程
+thread.setDaemon(True)  # 设置守护线程，主线程运行完毕后kill掉当前线程，需要在start()前调用
 thread.join()  # 设置线程等待，主线程等待当前线程执行完毕之后再退出
 ```
 

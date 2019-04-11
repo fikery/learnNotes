@@ -2,7 +2,9 @@
 
 # 01基础架构 一条SQL查询语句是如何执行的
 
+![MySQL逻辑架构图](https://github.com/fikery/learnNotes/blob/master/source/0d2070e8f84c4801adbfa03bda1f98d9.png)
 
+大体来说，MySQL可以分为server层和引擎层两部分。
 
 # 02日志系统 一条SQL更新语句是如何执行的
 

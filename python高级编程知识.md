@@ -382,15 +382,18 @@ for value in g1(range(3)):
 for value in g2(range(3)):
     print(value)  # 0,1,2
 
-
+# 子生成器
+def gen():
+    yield 'ok'
 # 委托生成器
 def g1(gen):
     # gen是子生成器
     yield from gen  # yield from会在调用方main与子生成器gen之间建立一个双向通道
 # 调用方
 def main():
-    g = g1()
-    g.send(None)  # 预激
+    g = g1(gen())
+    # 预激
+    print(g.send(None))  # ok
 
 ```
 
